@@ -58,7 +58,7 @@ class UninstallCleanup implements IRepairStep
         $currentEnforcedTheme = $this->config->getSystemValue("enforce_theme", "");
 
         // Aufheben der Erzwingung des BRK Themes
-        if ($currentEnforcedTheme === "brk") {
+        if ($currentEnforcedTheme === Application::APP_NAME) {
             $this->config->setSystemValue("enforce_theme", "");
         }
     }

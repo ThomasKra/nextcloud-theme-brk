@@ -28,6 +28,7 @@ declare(strict_types=1);
 
 namespace OCA\Brk\Migration;
 
+use OCA\Brk\AppInfo\Application;
 use OCP\IConfig;
 use OCP\IDBConnection;
 use OCP\DB\QueryBuilder\IQueryBuilder;
@@ -56,6 +57,6 @@ class InstallRestoreSettings implements IRepairStep
     public function run(IOutput $output): void
     {
         // BRK Theme erzwingen
-        $this->config->setSystemValue("enforce_theme", "brk");
+        $this->config->setSystemValue("enforce_theme", Application::APP_NAME);
     }
 }
