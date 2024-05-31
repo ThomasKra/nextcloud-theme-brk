@@ -66,7 +66,6 @@ class Application extends App implements IBootstrap
     public function doTheming(): void
     {
         Util::addStyle($this->appName, 'server');
-        Util::addScript($this->appName, 'brk');
 
         Util::addStyle($this->appName, 'guest');
     }
