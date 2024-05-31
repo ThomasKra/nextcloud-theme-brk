@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 /**
- * Breeze Dark theme for Nextcloud
+ * BRK theme for Nextcloud
  *
- * @copyright Copyright (C) 2020  Magnus Walbeck <mw@mwalbeck.org>
+ * @copyright Copyright (C) 2024  Thomas Krause <t.krause@ugsanel.de>
  *
- * @author Magnus Walbeck <mw@mwalbeck.org>
+ * @author Thomas Krause <t.krause@ugsanel.de>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -26,22 +26,20 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\BreezeDark\AppInfo;
+namespace OCA\Brk\AppInfo;
 
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use OCP\IConfig;
-use OCP\IUserSession;
+
 use OCP\Util;
-use OCP\IURLGenerator;
 
 class Application extends App implements IBootstrap
 {
 
     /** @var string */
-    public const APP_NAME = 'breezedark';
+    public const APP_NAME = 'brk-theme';
 
     /** @var string */
     protected $appName;
@@ -64,69 +62,12 @@ class Application extends App implements IBootstrap
     /**
      * Check if the theme should be applied
      *
-     * @param IConfig $config
-     * @param IUserSession $userSession
-     * @param IURLGenerator $urlGenerator
      */
-    public function doTheming(IConfig $config, IUserSession $userSession, IURLGenerator $urlGenerator): void
+    public function doTheming(): void
     {
-        $user = $userSession->getUser();
-        $enforced = $config->getAppValue($this->appName, "theme_enforced", "0");
-        $loginPage = $config->getAppValue($this->appName, "theme_login_page", "1");
-        $cachebuster = $config->getAppValue($this->appName, "theme_cachebuster", "0");
-        $automaticActivation = $config->getAppValue($this->appName, "theme_automatic_activation_enabled", "0");
+        Util::addStyle($this->appName, 'server');
+        Util::addScript($this->appName, 'brk');
 
-        if ($enforced) {
-            if (!is_null($user)) {
-                $automaticActivation = $config->getUserValue($user->getUID(), $this->appName, "theme_automatic_activation_enabled", $automaticActivation);
-            }
-            $this->addStyling($urlGenerator, $loginPage, $cachebuster, $automaticActivation);
-        } elseif (!is_null($user) and $config->getUserValue($user->getUID(), $this->appName, "theme_enabled", "0")) {
-            // When shown the 2FA login page you are logged in while also being on a login page,
-            // so a logged in user still needs the guests.css stylesheet
-            $this->addStyling($urlGenerator, $loginPage, $cachebuster, $config->getUserValue($user->getUID(), $this->appName, "theme_automatic_activation_enabled", "0"));
-        }
-    }
-
-    /**
-     * Add stylesheet(s) to nextcloud
-     *
-     * @param IURLGenerator $urlGenerator
-     * @param string $loginPage
-     * @param string $cachebuster
-     * @param string $automaticActivation
-     */
-    public function addStyling(IURLGenerator $urlGenerator, string $loginPage, string $cachebuster, string $automaticActivation): void
-    {
-        if ($automaticActivation) {
-            Util::addStyle($this->appName, 'server-automatic');
-        } else {
-            Util::addStyle($this->appName, 'server');
-        }
-        Util::addScript($this->appName, 'breezedark');
-
-        // If the styling for the login page is wanted, load the stylesheet.
-        if ($loginPage) {
-            if ($automaticActivation) {
-                Util::addStyle($this->appName, 'guest-automatic');
-            } else {
-                Util::addStyle($this->appName, 'guest');
-            }
-        }
-
-        // Only request the stylesheet if there is any styling to request
-        if ($cachebuster) {
-            $linkToCustomStyling = $urlGenerator->linkToRoute(
-                'breezedark.Theming.getCustomStyling',
-                ['v' => $cachebuster,]
-            );
-            Util::addHeader(
-                'link',
-                [
-                    'rel' => 'stylesheet',
-                    'href' => $linkToCustomStyling,
-                ]
-            );
-        }
+        Util::addStyle($this->appName, 'guest');
     }
 }

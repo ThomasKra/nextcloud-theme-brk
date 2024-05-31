@@ -4,77 +4,47 @@
  * @license GNU AGPL version 3 or any later version, see COPYING file for more.
  */
 
-[data-themes*="breezedark"] {
-    // Primary Breeze colours
-    --color-paper-white: rgba(252, 252, 252, 1);
-    --color-cardboard-gray: rgba(239, 240, 241, 1);
-    --color-icon-gray: rgba(77, 77, 77, 1);
-    --color-charcoal-gray: rgba(49, 54, 59, 1);
-    --color-shade-black: rgba(35, 38, 41, 1);
-    --color-plasma-blue: rgba(61, 174, 233, 1);
+[data-themes*="brk"] {
+    --color-main-text: #222 !important;
+    --color-main-background: #fff !important;
+    --color-main-background-translucent: rgba(var(--color-main-background), 0.97) !important;
+    --color-main-background-blur: rgba(var(--color-main-background), 0.8) !important;
+    --filter-background-blur: blur(25px);
+    --gradient-main-background: var(--color-main-background) 0%,
+        var(--color-main-background-translucent) 85%, transparent 100%;
 
-    // Secondary Breeze colours
-    --color-icon-red: rgba(218, 68, 83, 1);
-    --color-danger-red: rgba(237, 21, 21, 1);
-    --color-beware-orange: rgba(246, 116, 0, 1);
-    --color-icon-yellow: rgba(253, 188, 75, 1);
-    --color-sunbeam-yellow: rgba(201, 206, 59, 1);
-    --color-verdant-green: rgba(17, 209, 22, 1);
-    --color-icon-blue: rgba(29, 153, 243, 1);
+    --color-background-hover: #f5f5f5;
+    --color-background-dark: #ededed;
+    --color-background-darker: #dbdbdb;
+    --color-background-translucent: var(color-main-background-translucent) !important;
+    --color-background-plain: #fe0000 !important;
 
-    // Other Breeze Colours
-    --color-noble-fir: rgba(39, 174, 96, 1);
-    --color-abyss-blue: rgba(41, 128, 185, 1);
-    --color-coastal-fog: rgba(127, 140, 141, 1);
-    --color-alternate-gray: rgba(189, 195, 199, 1);
-
-    // An approximation of the blue hover colour seen in breeze dark
-    --color-hover-blue: rgba(61, 174, 233, 0.3);
-    // An approximation of the grey border colour seen in breeze dark
-    --color-border-grey: rgba(103, 107, 110, 1);
-    // Grey translucent colour for dashboard
-    --color-dashboard-grey: rgba(49, 54, 59, 0.8);
-    // Blue colour used for selected files in files table
-    --color-selected-blue: rgba(61, 174, 233, 0.4);
-
-    --color-main-text: var(--color-cardboard-gray) !important;
-    --color-main-background: var(--color-charcoal-gray) !important;
-    --color-main-background-translucent: var(--color-main-background) !important;
-
-    --color-background-hover: var(--color-hover-blue) !important;
-    --color-background-dark: var(--color-main-background) !important;
-    --color-background-darker: var(--color-shade-black) !important;
-    --color-background-translucent: var(--color-dashboard-grey) !important;
-    --color-background-plain: var(--color-shade-black) !important;
-
-    --color-primary: var(--color-plasma-blue) !important;
-    --color-primary-light: var(--color-primary) !important;
-    --color-primary-text: var(--color-paper-white) !important;
-    --color-primary-text-dark: var(--color-main-text) !important;
+    --color-primary: #fe0000 !important;
+    --color-primary-light: #fde5e5 !important;
+    --color-primary-text: #000 !important;
     --color-primary-element: var(--color-primary) !important;
-    --color-primary-element-light: var(--color-primary) !important;
+    --color-primary-element-light: var(--color-primary-element-light) !important;
 
-    --color-error: var(--color-icon-red) !important;
-    --color-warning: var(--color-beware-orange) !important;
-    --color-neutral: var(--color-sunbeam-yellow) !important;
-    --color-success: var(--color-noble-fir) !important;
+    --color-error: #db0606 !important;
+    --color-warning: #a37200 !important;
+    --color-neutral: rgba(201, 206, 59, 1) !important;
+    --color-success: #2d7b41 !important;
 
-    --color-text-maxcontrast: var(--color-alternate-gray) !important;
+    --color-text-maxcontrast: 6b6b6b !important;
     --color-text-light: var(--color-main-text) !important;
     --color-text-lighter: var(--color-text-maxcontrast) !important;
     --color-text-dark: rgba(0, 0, 0, 1) !important;
-    --color-text-selection: var(--color-hover-blue) !important;
     --color-text-link: rgba(30, 168, 226, 1) !important;
 
-    --color-loading-light: var(--color-alternate-gray) !important;
-    --color-loading-dark: var(--color-coastal-fog) !important;
+    --color-loading-light: #ccc !important;
+    --color-loading-dark: #444 !important;
 
-    --color-box-shadow: rgba(0, 0, 0, 0) !important;
-    --color-box-shadow-rgb: rgba(0, 0, 0, 0) !important;
+    --color-box-shadow-rgb: rgb(77, 77, 77) !important;
+    --color-box-shadow: rgba(var(--color-box-shadow-rgb), 0.5) !important;
 
-    --color-border: var(--color-border-grey) !important;
-    --color-border-dark: var(--color-border) !important;
-    --color-border-maxcontrast: var(--color-border) !important;
+    --color-border: #ededed !important;
+    --color-border-dark: #dbdbdb !important;
+    --color-border-maxcontrast: #7d7d7d !important;
 
     --color-icon: rgba(242, 242, 242, 1);
 
@@ -87,30 +57,32 @@
     --table-border-radius: var(--border-radius) !important;
 
     // Variables from the official dark theme that needs to be set incase Nextcloud thinks the light theme is preferred.
-    // The variables should be adapted to better suit the Breeze Dark theme, but for the moment this will ensure a usable experience.
-    --color-main-background-rgb: rgb(23, 23, 23) !important;
-    --color-main-background-blur: rgba(23, 23, 23, 0.8) !important;
-    --background-invert-if-dark: invert(100%) !important;
-    --background-invert-if-bright: no !important;
-    --color-success-rgb: 70, 186, 97 !important;
-    --color-success-hover: #6ac780 !important;
-    --color-warning-rgb: 236, 167, 0 !important;
-    --color-warning-hover: #efb832 !important;
-    --color-error-rgb: 233, 50, 45 !important;
-    --color-error-hover: #ed5a56 !important;
-    --color-scrollbar: #3d3d3d !important;
-    --color-text-maxcontrast-background-blur: #919191 !important;
-    --color-text-maxcontrast-default: #8c8c8c !important;
-    --color-placeholder-light: #313131 !important;
-    --color-placeholder-dark: #4a4a4a !important;
-    --color-primary-default: #0082c9 !important;
-    --color-primary-hover: #04537f !important;
-    --color-primary-light-text: #99c0d6 !important;
-    --color-primary-light-hover: #1d272d !important;
-    --color-primary-element-default-hover: #046ca5 !important;
-    --color-primary-element-text: #fff !important;
-    --color-primary-element-hover: #04537f !important;
-    --color-primary-element-light-text: #99c0d6 !important;
-    --color-primary-element-light-hover: #1d272d !important;
-    --color-primary-element-text-dark: #ededed !important;
+    // The variables should be adapted to better suit the BRK theme, but for the moment this will ensure a usable experience.
+    --color-main-background-rgb: rgb(255, 255, 255) !important;
+    --background-invert-if-dark: no;
+    --background-invert-if-bright: invert(100%);
+    --background-image-invert-if-bright: no;
+    --primary-invert-if-bright: invert(100%);
+    --primary-invert-if-dark: no;
+    --color-success-rgb: 45, 123, 65 !important;
+    --color-success-hover: #428854 !important;
+    --color-warning-rgb: 163, 114, 0 !important;
+    --color-warning-hover: #8a6000 !important;
+    --color-error-rgb: 219, 6, 6 !important;
+    --color-error-hover: #df2525 !important;
+    --color-scrollbar: rgba(34, 34, 34, 0.15) !important;
+    --color-text-maxcontrast-background-blur: #595959 !important;
+    --color-text-maxcontrast-default: #6b6b6b !important;
+    --color-placeholder-light: #e6e6e6 !important;
+    --color-placeholder-dark: #ccc !important;
+    --color-primary-default: #fe0000 !important;
+    --color-primary-hover: #fe3232 !important;
+    --color-primary-light-text: #650000 !important;
+    --color-primary-light-hover: #f2dbdb !important;
+    --color-primary-element-default-hover: #ff0707 !important;
+    --color-primary-element-text: #000 !important;
+    --color-primary-element-hover: #ff0707 !important;
+    --color-primary-element-light-text: #600000 !important;
+    --color-primary-element-light-hover: #f2dbdb !important;
+    --color-primary-element-text-dark: #0a0a0a !important;
 }

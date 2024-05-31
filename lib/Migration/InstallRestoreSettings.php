@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Breeze Dark theme for Nextcloud
+ * BRK theme for Nextcloud
  *
  * @copyright Copyright (C) 2023  Magnus Walbeck <mw@mwalbeck.org>
  *
@@ -26,7 +26,7 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\BreezeDark\Migration;
+namespace OCA\Brk\Migration;
 
 use OCP\IConfig;
 use OCP\IDBConnection;
@@ -37,50 +37,25 @@ use OCP\Migration\IRepairStep;
 class InstallRestoreSettings implements IRepairStep
 {
     /** @var IDBConnection */
-	private $db;
+    private $db;
 
     /** @var IConfig */
-	private $config;
+    private $config;
 
     public function __construct(IDBConnection $db, IConfig $config)
     {
         $this->db = $db;
-        $this->config = $config;   
+        $this->config = $config;
     }
 
     public function getName(): string
     {
-        return "Restore enabled-themes and enforce_theme settings that where removed during an uninstall";
+        return "BRK Theme erzwingen";
     }
 
     public function run(IOutput $output): void
     {
-        $userQb = $this->db->getQueryBuilder();
-        $userQb->select('userid')->from('preferences')->where(
-            $userQb->expr()->eq('appid', $userQb->createNamedParameter('breezedark'), IQueryBuilder::PARAM_STR),
-            $userQb->expr()->eq('configkey', $userQb->createNamedParameter('theme_enabled')),
-            $userQb->expr()->eq('configvalue', $userQb->createNamedParameter('1'))
-        );
-        $result = $userQb->executeQuery();
-
-        $users = $result->fetchAll();
-
-        foreach($users as $user) {
-            $enabledThemes = json_decode($this->config->getUserValue($user["userid"], "theming", "enabled-themes", "[]"));
-            $enabledThemes = array_merge(["breezedark"], $enabledThemes);
-            $this->config->setUserValue($user["userid"], "theming", "enabled-themes", json_encode(array_values(array_unique($enabledThemes))));
-        }
-
-        $themeEnforced = $this->config->getAppValue("breezedark", "theme_enforced", "0");
-        $currentEnforcedTheme = $this->config->getSystemValue("enforce_theme", "");
-
-        if ($themeEnforced && $currentEnforcedTheme === "") {
-            // Re-enable enforcement of the theme if no enforced theme is currently set
-            $this->config->setSystemValue("enforce_theme", "breezedark");
-        } elseif ($themeEnforced && $currentEnforcedTheme !== "breezedark") {
-            // Disable theme enforcement of breezedark if a theme other than
-            // breezedark is currently being enforced
-            $this->config->setAppValue("breezedark", "theme_enforced", "0");
-        }
+        // BRK Theme erzwingen
+        $this->config->setSystemValue("enforce_theme", "brk");
     }
 }

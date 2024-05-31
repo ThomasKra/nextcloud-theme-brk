@@ -1,67 +1,34 @@
 <?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>breezedark</id>
-    <name>Breeze Dark</name>
-    <summary><![CDATA[Breeze Dark theme for Nextcloud, based on the theme by KDE]]></summary>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>brk</id>
+    <name>BRK</name>
+    <summary><![CDATA[BRK Theme für Nextcloud]]></summary>
     <description><![CDATA[
-# Breeze Dark
-This is a breeze dark theme for Nextcloud, based on the Breeze Dark theme made by the KDE Project.
+# BRK
+Ein BRK Theme für Nextcloud
 
-## Usage
+## Benutzung
 
-After you install the theme, you need to enable it. There are two options for this, a global and a personal one.
-
-### Global
-
-With the global options you can enforce the use of the theme for all users as well as unauthenticated visits. Please note that when the theme is enforced for all users it isn't possible for them to disable the theme or choose a different theme.
-
-There is also an option to let the theme be enabled / disabled based on the theming preferences reported by browser. When the theme is deactivated using this method, Nextcloud will revert to using the default light theme. This setting only sets the default for when the theme is globally enforced and can be overridden by the user.
-
-You can also choose whether the login page should be themed. Though this only has an effect if the theme is enforced globally, or during the login phase of a user that has the theme enabled.
-
-You can find the global options here:
-
-```
-Settings > Administration > Theming > Breeze Dark
-```
-
-### Personal
-
-The personal option allows each user to enable / disable the theme unless it's being enforced by the global options. They can though choose whether the theme should follow the theming choice reported by the browser. This option is also available when the theme is being enforced globally. If the user hasn't set a preference they will follow the global default. You can find the personal option here:
-
-```
-Settings > Personal > Appearance and accessibility > Breeze Dark
-```
-
-### Custom styling
-
-Under the Theming section in the admin settings you can add your own custom styling to the theme. Only standard CSS can be used. This custom styling will be applied whenever the theme is enabled and only affects the Breeze Dark theme.
-    ]]></description>
-    <version>28.0.0</version>
+Nach der Installation muss das Theme aktiviert werden.
+Das Theme ist dann aktiv.
+    ]]>    </description>
+    <version>20.0.0</version>
     <licence>agpl</licence>
-    <author mail="mw@mwalbeck.org" homepage="https://github.com/mwalbeck/nextcloud-breeze-dark">Magnus Walbeck</author>
-    <namespace>BreezeDark</namespace>
+    <author mail="t.krause@ugsanel.de" homepage="https://github.com/ThomasKra/nextcloud-theme-brk">Thomas Krause</author>
+    <namespace>Brk</namespace>
     <category>customization</category>
-    <website>https://github.com/mwalbeck/nextcloud-breeze-dark</website>
-    <bugs>https://github.com/mwalbeck/nextcloud-breeze-dark/issues</bugs>
+    <website>https://github.com/ThomasKra/nextcloud-theme-brk</website>
+    <bugs>https://github.com/ThomasKra/nextcloud-theme-brk/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/mwalbeck/nextcloud-breeze-dark/master/screenshot.png</screenshot>
     <dependencies>
-        <nextcloud min-version="28" max-version="28"/>
+        <nextcloud min-version="29" max-version="29"/>
     </dependencies>
     <repair-steps>
-		<post-migration>
-			<step>OCA\BreezeDark\Migration\MigrateUserThemeSettings</step>
-		</post-migration>
         <install>
-            <step>OCA\BreezeDark\Migration\InstallRestoreSettings</step>
+            <step>OCA\Brk\Migration\InstallRestoreSettings</step>
         </install>
         <uninstall>
-            <step>OCA\BreezeDark\Migration\UninstallCleanup</step>
+            <step>OCA\Brk\Migration\UninstallCleanup</step>
         </uninstall>
-	</repair-steps>
-    <settings>
-        <personal>OCA\BreezeDark\Settings\Personal</personal>
-        <admin>OCA\BreezeDark\Settings\Admin</admin>
-    </settings>
+    </repair-steps>
 </info>

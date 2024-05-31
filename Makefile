@@ -1,7 +1,7 @@
 # This file is licensed under the Affero General Public License version 3 or
 # later. See the COPYING file.
 
-app_name=breezedark
+app_name=brk-theme
 build_directory=$(CURDIR)/build
 sign_directory=$(build_directory)/sign
 cert_directory=$(HOME)/.nextcloud/certificates

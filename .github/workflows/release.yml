@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  APP_NAME: breezedark
+  APP_NAME: brk-theme
   CERT_DIRECTORY: $HOME/.nextcloud/certificates
 
 jobs:

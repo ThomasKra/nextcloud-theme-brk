@@ -1,0 +1,121 @@
+/**
+ * BRK theme for Nextcloud
+ *
+ * @copyright Copyright (c) 2019, Magnus Walbeck <mw@mwalbeck.org>
+ *
+ * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+ */
+ @import "variables/color-variables";
+
+
+/* Login Screen ------------------------------------------------------------- */
+
+#body-login {
+    background-color: var(--color-main-background) !important;
+    background-image: url("../../../index.php/apps/theming/image/background"),
+        url("../../../core/img/background.png") !important;
+}
+
+#body-login a,
+#body-login p.info {
+    color: var(--color-main-text) !important;
+}
+
+#body-login input[type="text"],
+#body-login input[type="tel"],
+#body-login input[type="password"],
+#body-login input[type="email"] {
+    background: var(--color-background-darker) !important;
+    color: var(--color-main-text) !important;
+}
+
+#body-login input[type="tel"] {
+    border: 1px solid var(--color-border);
+}
+
+#body-login .groupbottom input {
+    box-shadow: unset !important;
+}
+
+#body-login .toggle-password,
+#body-login #email-icon {
+    filter: invert(95%);
+}
+
+#body-login input[type="submit"],
+#body-login input[type="submit"].primary,
+#body-login input[type="button"],
+#body-login button.primary,
+#body-login .button {
+    background-color: var(--color-main-background) !important;
+    border: 1px solid var(--color-border) !important;
+    color: var(--color-main-text) !important;
+}
+
+#body-login input[type="submit"]:hover,
+#body-login input[type="submit"].primary:hover,
+#body-login input[type="button"]:hover,
+#body-login button.primary:hover,
+#body-login .button:hover {
+    border-color: var(--color-primary-element) !important;
+    opacity: 1;
+}
+
+#body-login input[type="submit"]:active,
+#body-login input[type="submit"]:focus,
+#body-login input[type="submit"].primary:active,
+#body-login input[type="submit"].primary:focus,
+#body-login input[type="button"]:active,
+#body-login input[type="button"]:focus,
+#body-login button.primary:active,
+#body-login button.primary:focus,
+#body-login .button:active,
+#body-login .button:focus {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary-element) !important;
+}
+
+#body-login .two-factor-provider:hover,
+#body-login .two-factor-provider:focus,
+#body-login .two-factor-provider:active {
+    background-color: var(--color-background-hover);
+    border-color: var(--color-primary-element) !important;
+}
+
+#body-login .warning input[type="password"] {
+    border: 1px solid var(--color-border);
+}
+
+#body-login .warning input[type="submit"] {
+    background-color: inherit !important;
+    border: unset !important;
+}
+
+/* SAML Login */
+#saml-select-user-back-end {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 260px;
+}
+
+#saml-select-user-back-end .login-option {
+    background-color: var(--color-main-background);
+    border-color: var(--color-border);
+    border-radius: 100px;
+    box-sizing: border-box;
+    height: 50px;
+    min-width: 260px;
+}
+
+#saml-select-user-back-end .login-option:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary-element);
+}
+
+#saml-select-user-back-end .login-option a {
+    line-height: 50px;
+}
+
+#saml-select-user-back-end .login-option a:hover {
+    text-decoration: none;
+}
