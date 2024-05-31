@@ -23,12 +23,4 @@ Das Theme ist dann aktiv.
     <dependencies>
         <nextcloud min-version="29" max-version="29"/>
     </dependencies>
-    <repair-steps>
-        <install>
-            <step>OCA\Brk\Migration\InstallRestoreSettings</step>
-        </install>
-        <uninstall>
-            <step>OCA\Brk\Migration\UninstallCleanup</step>
-        </uninstall>
-    </repair-steps>
 </info>

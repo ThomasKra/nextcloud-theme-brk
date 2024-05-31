@@ -10,7 +10,7 @@
  *
  * @license GNU AGPL version 3 or any later version, see COPYING file for more.
  */
-[data-themes*=brk_theme] {
+:root {
   --color-main-text: #222 !important;
   --color-main-background: #fff !important;
   --color-main-background-translucent: rgba(var(--color-main-background), 0.97) !important;
