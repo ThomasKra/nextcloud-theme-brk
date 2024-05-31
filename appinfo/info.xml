@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>brk</id>
-    <name>BRK</name>
+    <id>brk_theme</id>
+    <name>BRK Theme</name>
     <summary><![CDATA[BRK Theme für Nextcloud]]></summary>
     <description><![CDATA[
 # BRK
@@ -12,7 +12,7 @@ Ein BRK Theme für Nextcloud
 Nach der Installation muss das Theme aktiviert werden.
 Das Theme ist dann aktiv.
     ]]>    </description>
-    <version>20.0.0</version>
+    <version>29.0.0</version>
     <licence>agpl</licence>
     <author mail="t.krause@ugsanel.de" homepage="https://github.com/ThomasKra/nextcloud-theme-brk">Thomas Krause</author>
     <namespace>Brk</namespace>

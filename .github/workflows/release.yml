@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  APP_NAME: brk-theme
+  APP_NAME: brk_theme
   CERT_DIRECTORY: $HOME/.nextcloud/certificates
 
 jobs:

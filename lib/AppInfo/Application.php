@@ -39,7 +39,7 @@ class Application extends App implements IBootstrap
 {
 
     /** @var string */
-    public const APP_NAME = 'brk-theme';
+    public const APP_NAME = 'brk_theme';
 
     /** @var string */
     protected $appName;
