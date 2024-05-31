@@ -5,45 +5,68 @@
  */
 
 :root {
-    --color-main-text: #222 !important;
-    --color-main-background: #fff !important;
-    --color-main-background-translucent: rgba(var(--color-main-background), 0.97) !important;
-    --color-main-background-blur: rgba(var(--color-main-background), 0.8) !important;
+    --color-main-text: #EBEBEB !important;
+    --color-main-background: #171717 !important;
+    --color-main-background-rgb: rgb(23, 23, 23) !important;
+    --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97) !important;
+    --color-main-background-blur: rgba(var(--color-main-background-rgb), 0.85) !important;
     --filter-background-blur: blur(25px);
     --gradient-main-background: var(--color-main-background) 0%,
         var(--color-main-background-translucent) 85%, transparent 100%;
 
-    --color-background-hover: #f5f5f5;
-    --color-background-dark: #ededed;
-    --color-background-darker: #dbdbdb;
+    --color-background-hover: #212121;
+    --color-background-dark: #292929;
+    --color-background-darker: #3b3b3b;
     --color-background-translucent: var(color-main-background-translucent) !important;
     --color-background-plain: #fe0000 !important;
 
     --color-primary: #fe0000 !important;
-    --color-primary-light: #fde5e5 !important;
+    --color-primary-light: #2e1c1c !important;
     --color-primary-text: #000 !important;
-    --color-primary-element: var(--color-primary) !important;
-    --color-primary-element-light: var(--color-primary-element-light) !important;
+    --color-primary-element: #ff4949 !important;
+    --color-primary-element-light: #2e1c1c !important;
 
-    --color-error: #db0606 !important;
-    --color-warning: #a37200 !important;
+
+    --color-error: #FF3333;
+    --color-error-rgb: 255, 51, 51;
+    --color-error-hover: #ff6666;
+    --color-error-text: #ff8080;
+    
+    --color-warning: #FFCC00;
+    --color-warning-rgb: 255, 204, 0;
+    --color-warning-hover: #ffd633;
+    --color-warning-text: #FFCC00;
+    
     --color-neutral: rgba(201, 206, 59, 1) !important;
-    --color-success: #2d7b41 !important;
+    
+    --color-success: #3B973B;
+    --color-success-rgb: 59, 151, 59;
+    --color-success-hover: #4cb94c;
+    --color-success-text: #5ec05e;
 
-    --color-text-maxcontrast: 6b6b6b !important;
+    --color-info: #00AEFF;
+    --color-info-rgb: 0, 174, 255;
+    --color-info-hover: #33beff;
+    --color-info-text: #00AEFF;
+    
+    --color-favorite: #ffde00;
+
+    
+
+    --color-text-maxcontrast: #999999 !important;
     --color-text-light: var(--color-main-text) !important;
     --color-text-lighter: var(--color-text-maxcontrast) !important;
     --color-text-dark: rgba(0, 0, 0, 1) !important;
     --color-text-link: rgba(30, 168, 226, 1) !important;
 
-    --color-loading-light: #ccc !important;
-    --color-loading-dark: #444 !important;
+    --color-loading-light: #777 !important;
+    --color-loading-dark: #ccc !important;
 
-    --color-box-shadow-rgb: rgb(77, 77, 77) !important;
+    --color-box-shadow-rgb: 0, 0, 0 !important;
     --color-box-shadow: rgba(var(--color-box-shadow-rgb), 0.5) !important;
 
-    --color-border: #ededed !important;
-    --color-border-dark: #dbdbdb !important;
+    --color-border: #292929 !important;
+    --color-border-dark: #3b3b3b !important;
     --color-border-maxcontrast: #7d7d7d !important;
 
     --color-icon: rgba(242, 242, 242, 1);
@@ -58,31 +81,28 @@
 
     // Variables from the official dark theme that needs to be set incase Nextcloud thinks the light theme is preferred.
     // The variables should be adapted to better suit the BRK theme, but for the moment this will ensure a usable experience.
-    --color-main-background-rgb: rgb(255, 255, 255) !important;
-    --background-invert-if-dark: no;
-    --background-invert-if-bright: invert(100%);
+    --background-invert-if-dark: invert(100%);
+    --background-invert-if-bright: no;
     --background-image-invert-if-bright: no;
     --primary-invert-if-bright: invert(100%);
     --primary-invert-if-dark: no;
-    --color-success-rgb: 45, 123, 65 !important;
-    --color-success-hover: #428854 !important;
-    --color-warning-rgb: 163, 114, 0 !important;
-    --color-warning-hover: #8a6000 !important;
-    --color-error-rgb: 219, 6, 6 !important;
-    --color-error-hover: #df2525 !important;
-    --color-scrollbar: rgba(34, 34, 34, 0.15) !important;
-    --color-text-maxcontrast-background-blur: #595959 !important;
-    --color-text-maxcontrast-default: #6b6b6b !important;
-    --color-placeholder-light: #e6e6e6 !important;
-    --color-placeholder-dark: #ccc !important;
-    --color-primary-default: #fe0000 !important;
-    --color-primary-hover: #fe3232 !important;
-    --color-primary-light-text: #650000 !important;
-    --color-primary-light-hover: #f2dbdb !important;
+    
+    --color-scrollbar: 3d3d3d !important;
+    --color-text-maxcontrast-background-blur: #a8a8a8 !important;
+    --color-text-maxcontrast-default: #999999 !important;
+
+    --color-placeholder-light: #313131 !important;
+    --color-placeholder-dark: #4a4a4a !important;
+
+    --color-primary: #FE0000;
+    --color-primary-default: --var(--color-primary) !important;
+    --color-primary-hover: #cf0404 !important;
+    --color-primary-light-text: #fe9999 !important;
+    --color-primary-light-hover: #372626 !important;
     --color-primary-element-default-hover: #ff0707 !important;
     --color-primary-element-text: #000 !important;
-    --color-primary-element-hover: #ff0707 !important;
-    --color-primary-element-light-text: #600000 !important;
-    --color-primary-element-light-hover: #f2dbdb !important;
+    --color-primary-element-hover: #ff5d5d !important;
+    --color-primary-element-light-text: #ffb6b6 !important;
+    --color-primary-element-light-hover: #372626 !important;
     --color-primary-element-text-dark: #0a0a0a !important;
 }

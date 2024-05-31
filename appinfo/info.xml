@@ -12,7 +12,7 @@ Ein BRK Theme für Nextcloud
 Nach der Installation muss das Theme aktiviert werden.
 Das Theme ist dann aktiv.
     ]]>    </description>
-    <version>29.0.0</version>
+    <version>29.0.1</version>
     <licence>agpl</licence>
     <author mail="t.krause@ugsanel.de" homepage="https://github.com/ThomasKra/nextcloud-theme-brk">Thomas Krause</author>
     <namespace>Brk</namespace>
