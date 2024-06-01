@@ -27,7 +27,7 @@
  */
 
 // General and Nextcloud Core
-@import "variables/color-variables";
+@import "variables/variables";
 @import "base/elements";
 @import "server/server";
 @import "apps/apps";
@@ -83,3 +83,5 @@
 @import "apps/thirdparty/timemanager";
 @import "apps/thirdparty/user-account-deletion";
 @import "apps/thirdparty/weather";
+
+@import "guest.scss";

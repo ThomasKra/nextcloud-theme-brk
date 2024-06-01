@@ -31,10 +31,11 @@
  * @license GNU AGPL version 3 or any later version, see COPYING file for more.
  */
 :root {
-  --color-main-text: #EBEBEB !important;
+  --image-background: none;
+  --color-main-text: #ebebeb !important;
   --color-main-background: #171717 !important;
-  --color-main-background-rgb: rgb(23, 23, 23) !important;
-  --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97) !important;
+  --color-main-background-rgb: 23, 23, 23;
+  --color-main-background-translucent: rgba(var(--color-main-background-rgb), 0.97) !important;
   --color-main-background-blur: rgba(var(--color-main-background-rgb), 0.85) !important;
   --filter-background-blur: blur(25px);
   --gradient-main-background: var(--color-main-background) 0%,
@@ -46,26 +47,26 @@
   --color-background-plain: #fe0000 !important;
   --color-primary: #fe0000 !important;
   --color-primary-light: #2e1c1c !important;
-  --color-primary-text: #000 !important;
+  --color-primary-text: var(--color-main-text) !important;
   --color-primary-element: #ff4949 !important;
   --color-primary-element-light: #2e1c1c !important;
-  --color-error: #FF3333;
+  --color-error: #ff3333;
   --color-error-rgb: 255, 51, 51;
   --color-error-hover: #ff6666;
   --color-error-text: #ff8080;
-  --color-warning: #FFCC00;
+  --color-warning: #ffcc00;
   --color-warning-rgb: 255, 204, 0;
   --color-warning-hover: #ffd633;
-  --color-warning-text: #FFCC00;
+  --color-warning-text: #ffcc00;
   --color-neutral: rgba(201, 206, 59, 1) !important;
-  --color-success: #3B973B;
+  --color-success: #3b973b;
   --color-success-rgb: 59, 151, 59;
   --color-success-hover: #4cb94c;
   --color-success-text: #5ec05e;
-  --color-info: #00AEFF;
+  --color-info: #00aeff;
   --color-info-rgb: 0, 174, 255;
   --color-info-hover: #33beff;
-  --color-info-text: #00AEFF;
+  --color-info-text: #00aeff;
   --color-favorite: #ffde00;
   --color-text-maxcontrast: #999999 !important;
   --color-text-light: var(--color-main-text) !important;
@@ -76,7 +77,7 @@
   --color-loading-dark: #ccc !important;
   --color-box-shadow-rgb: 0, 0, 0 !important;
   --color-box-shadow: rgba(var(--color-box-shadow-rgb), 0.5) !important;
-  --color-border: #292929 !important;
+  --color-border: #7d7d7d !important;
   --color-border-dark: #3b3b3b !important;
   --color-border-maxcontrast: #7d7d7d !important;
   --color-icon: rgba(242, 242, 242, 1);
@@ -96,7 +97,7 @@
   --color-text-maxcontrast-default: #999999 !important;
   --color-placeholder-light: #313131 !important;
   --color-placeholder-dark: #4a4a4a !important;
-  --color-primary: #FE0000;
+  --color-primary: #fe0000;
   --color-primary-default: --var(--color-primary) !important;
   --color-primary-hover: #cf0404 !important;
   --color-primary-light-text: #fe9999 !important;
@@ -280,6 +281,20 @@ progress:not(.vue) {
 }
 
 /* Menues -------------------------------------------------------------------- */
+#nextcloud {
+  padding-left: 170px;
+  background-color: white;
+  margin-top: -2px;
+  margin-left: 0px;
+}
+
+#header .logo {
+  width: 170px;
+  background-position: left;
+  top: 2px;
+  left: 2px;
+}
+
 .menu,
 .popovermenu,
 .bubble,
@@ -317,6 +332,10 @@ progress:not(.vue) {
 }
 
 /* Search ------------------------------------------------------------------- */
+#header .header-menu SPAN.button-vue_icon {
+  color: var(--color-primary-text) !important;
+}
+
 .header-menu__wrapper {
   border: 1px solid var(--color-border);
 }
@@ -2917,6 +2936,123 @@ button#deleteaccount:disabled {
 
 .app-weather #city-right table tr {
   background-color: unset;
+}
+
+/**
+ * BRK theme for Nextcloud
+ *
+ * @copyright Copyright (c) 2019, Magnus Walbeck <mw@mwalbeck.org>
+ *
+ * @license GNU AGPL version 3 or any later version, see COPYING file for more.
+ */
+/* Login Screen ------------------------------------------------------------- */
+#body-login {
+  background-color: white !important;
+  background-image: none !important;
+}
+
+#body-login a,
+#body-login p.info {
+  color: var(--color-main-text) !important;
+}
+
+#body-login input[type=text],
+#body-login input[type=tel],
+#body-login input[type=password],
+#body-login input[type=email] {
+  background: var(--color-background-darker) !important;
+  color: var(--color-main-text) !important;
+}
+
+#body-login input[type=tel] {
+  border: 1px solid var(--color-border);
+}
+
+#body-login .groupbottom input {
+  box-shadow: unset !important;
+}
+
+#body-login .toggle-password,
+#body-login #email-icon {
+  filter: invert(95%);
+}
+
+#body-login input[type=submit],
+#body-login input[type=submit].primary,
+#body-login input[type=button],
+#body-login button.primary,
+#body-login .button {
+  background-color: var(--color-main-background) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-main-text) !important;
+}
+
+#body-login input[type=submit]:hover,
+#body-login input[type=submit].primary:hover,
+#body-login input[type=button]:hover,
+#body-login button.primary:hover,
+#body-login .button:hover {
+  border-color: var(--color-primary-element) !important;
+  opacity: 1;
+}
+
+#body-login input[type=submit]:active,
+#body-login input[type=submit]:focus,
+#body-login input[type=submit].primary:active,
+#body-login input[type=submit].primary:focus,
+#body-login input[type=button]:active,
+#body-login input[type=button]:focus,
+#body-login button.primary:active,
+#body-login button.primary:focus,
+#body-login .button:active,
+#body-login .button:focus {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary-element) !important;
+}
+
+#body-login .two-factor-provider:hover,
+#body-login .two-factor-provider:focus,
+#body-login .two-factor-provider:active {
+  background-color: var(--color-background-hover);
+  border-color: var(--color-primary-element) !important;
+}
+
+#body-login .warning input[type=password] {
+  border: 1px solid var(--color-border);
+}
+
+#body-login .warning input[type=submit] {
+  background-color: inherit !important;
+  border: unset !important;
+}
+
+/* SAML Login */
+#saml-select-user-back-end {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 260px;
+}
+
+#saml-select-user-back-end .login-option {
+  background-color: var(--color-main-background);
+  border-color: var(--color-border);
+  border-radius: 100px;
+  box-sizing: border-box;
+  height: 50px;
+  min-width: 260px;
+}
+
+#saml-select-user-back-end .login-option:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-element);
+}
+
+#saml-select-user-back-end .login-option a {
+  line-height: 50px;
+}
+
+#saml-select-user-back-end .login-option a:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=server.css.map */

@@ -5,15 +5,12 @@
  *
  * @license GNU AGPL version 3 or any later version, see COPYING file for more.
  */
- @import "variables/color-variables";
-
 
 /* Login Screen ------------------------------------------------------------- */
 
 #body-login {
-    background-color: var(--color-main-background) !important;
-    background-image: url("../../../index.php/apps/theming/image/background"),
-        url("../../../core/img/background.png") !important;
+    background-color: white !important;
+    background-image: none !important;
 }
 
 #body-login a,

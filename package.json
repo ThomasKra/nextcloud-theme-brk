@@ -1,6 +1,6 @@
 {
     "name": "brk_theme",
-    "version": "29.0.0",
+    "version": "29.1.0",
     "description": "BRK theme für Nextcloud",
     "author": "Thomas Krause",
     "devDependencies": {
@@ -12,10 +12,10 @@
         "sass": "^1.54.9"
     },
     "scripts": {
-        "watch": "sass --poll --watch css/server.scss:css/server.css css/guest.scss:css/guest.css",
-        "build": "sass css/server.scss:css/server.css css/guest.scss:css/guest.css",
-        "prettier": "prettier --check css js",
-        "prettier:fix": "prettier --write css js",
+        "watch": "sass --poll --watch css/server.scss:css/server.css",
+        "build": "sass css/server.scss:css/server.css",
+        "prettier": "prettier --check css",
+        "prettier:fix": "prettier --write css",
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix"
     }

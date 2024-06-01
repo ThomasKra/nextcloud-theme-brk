@@ -21,6 +21,19 @@
 
 /* Menues -------------------------------------------------------------------- */
 
+#nextcloud {
+    padding-left: 170px;
+    background-color: white;
+    margin-top: -2px;
+    margin-left: 0px;
+}
+#header .logo {
+    width: 170px;
+    background-position: left;
+    top: 2px;
+    left: 2px;
+}
+
 .menu,
 .popovermenu,
 .bubble,
@@ -61,6 +74,9 @@
 }
 
 /* Search ------------------------------------------------------------------- */
+#header .header-menu SPAN.button-vue_icon {
+    color: var(--color-primary-text) !important;
+}
 
 .header-menu__wrapper {
     border: 1px solid var(--color-border);
